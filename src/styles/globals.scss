@@ -1,0 +1,74 @@
+// Import variables and mixins
+@import 'variables';
+@import 'mixins';
+
+// Global styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  margin: 0;
+  padding: 0;
+}
+
+// Utility classes
+.container {
+  @include container;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.text-gradient-blockchain {
+  @include text-gradient(var(--blockchain-500), var(--blockchain-700));
+}
+
+.text-gradient-mining {
+  @include text-gradient(var(--mining-400), var(--mining-600));
+}
+
+.fade-in {
+  @include fade-in;
+}
+
+.slide-up {
+  @include slide-up;
+}
+
+// Loading spinner
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blockchain-500);
+}
