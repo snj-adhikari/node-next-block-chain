@@ -1,52 +1,24 @@
 {
   "version": 2,
   "name": "blockchain-generator",
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "distDir": ".next"
-      }
-    },
-    {
-      "src": "backend/src/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "backend/src/**",
-          "backend/package.json",
-          "backend/tsconfig.json"
-        ]
-      }
+  "functions": {
+    "api/backend.ts": {
+      "maxDuration": 30,
+      "memory": 1024
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/health",
-      "dest": "/backend/src/index.ts"
+      "source": "/api/health",
+      "destination": "/api/backend"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "/backend/src/index.ts"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/frontend/public/favicon.ico"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/$1"
+      "source": "/api/(.*)",
+      "destination": "/api/backend"
     }
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "backend/src/index.ts": {
-      "maxDuration": 30,
-      "memory": 1024
-    }
   },
   "headers": [
     {

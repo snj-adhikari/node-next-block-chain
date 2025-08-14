@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { BlockchainFormData } from '@/components/blockchain/BlockchainConfigForm'
 import { CreatedBlockchain } from '@/components/blockchain/BlockchainSuccessView'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001/api'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api'
 
 interface UseBlockchainApiReturn {
   createBlockchain: (formData: BlockchainFormData) => Promise<CreatedBlockchain>
@@ -21,15 +21,12 @@ export function useBlockchainApi(): UseBlockchainApiReturn {
     setError(null)
 
     try {
-      const response = await fetch(`${API_BASE_URL}/blockchain/create`, {
+      const response = await fetch(`${API_BASE_URL}/blockchains`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          config: formData,
-          userId: 'anonymous-user-' + Date.now()
-        }),
+        body: JSON.stringify(formData),
       })
       
       const data = await response.json()
@@ -38,7 +35,7 @@ export function useBlockchainApi(): UseBlockchainApiReturn {
         throw new Error(data.error || data.message || 'Failed to create blockchain')
       }
 
-      return data.blockchain
+      return data
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred'
       setError(errorMessage)
