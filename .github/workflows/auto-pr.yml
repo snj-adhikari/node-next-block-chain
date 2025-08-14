@@ -1,0 +1,86 @@
+name: Auto PR Creation
+
+on:
+  create:
+
+jobs:
+  create-pr:
+    name: Create Pull Request
+    runs-on: ubuntu-latest
+    if: github.event.ref_type == 'branch'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Extract branch info
+      id: branch-info
+      run: |
+        BRANCH_NAME=${GITHUB_REF#refs/heads/}
+        echo "branch_name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+        
+        # Extract branch type and description
+        if [[ $BRANCH_NAME == feature/* ]]; then
+          BRANCH_TYPE="Feature"
+          DESCRIPTION=$(echo $BRANCH_NAME | sed 's/feature\///' | sed 's/-/ /g' | sed 's/\b\w/\u&/g')
+        elif [[ $BRANCH_NAME == bugfix/* ]]; then
+          BRANCH_TYPE="Bug Fix"
+          DESCRIPTION=$(echo $BRANCH_NAME | sed 's/bugfix\///' | sed 's/-/ /g' | sed 's/\b\w/\u&/g')
+        elif [[ $BRANCH_NAME == hotfix/* ]]; then
+          BRANCH_TYPE="Hotfix"
+          DESCRIPTION=$(echo $BRANCH_NAME | sed 's/hotfix\///' | sed 's/-/ /g' | sed 's/\b\w/\u&/g')
+        else
+          BRANCH_TYPE="Update"
+          DESCRIPTION=$(echo $BRANCH_NAME | sed 's/-/ /g' | sed 's/\b\w/\u&/g')
+        fi
+        
+        echo "branch_type=$BRANCH_TYPE" >> $GITHUB_OUTPUT
+        echo "description=$DESCRIPTION" >> $GITHUB_OUTPUT
+    
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ steps.branch-info.outputs.branch_name }}
+        base: main
+        title: '${{ steps.branch-info.outputs.branch_type }}: ${{ steps.branch-info.outputs.description }}'
+        body: |
+          ## ${{ steps.branch-info.outputs.branch_type }}: ${{ steps.branch-info.outputs.description }}
+          
+          ### 📝 Description
+          This PR was automatically created for branch: `${{ steps.branch-info.outputs.branch_name }}`
+          
+          ### 🔄 Changes
+          - [ ] Add detailed description of changes
+          - [ ] Update tests if necessary
+          - [ ] Update documentation if necessary
+          
+          ### ✅ Checklist
+          - [ ] Code follows project style guidelines
+          - [ ] Self-review of code completed
+          - [ ] Tests pass locally
+          - [ ] Documentation updated (if applicable)
+          
+          ### 🧪 Testing
+          - [ ] Unit tests added/updated
+          - [ ] Integration tests added/updated
+          - [ ] Manual testing completed
+          
+          ### 📸 Screenshots (if applicable)
+          Add screenshots here if UI changes were made.
+          
+          ### 🚀 Deployment Notes
+          Any special deployment considerations or environment variables needed.
+          
+          ---
+          *This PR was created automatically. Please update the description and checklist above.*
+        labels: |
+          auto-created
+          needs-review
+        assignees: ${{ github.actor }}
+        reviewers: |
+          snj-adhikari
+        draft: false

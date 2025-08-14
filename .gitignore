@@ -1,0 +1,131 @@
+# ===== DEPENDENCIES =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.yarn/
+.pnp.*
+jspm_packages/
+bower_components/
+
+# ===== BUILD OUTPUTS =====
+build/
+dist/
+out/
+.next/
+.nuxt/
+.vercel/
+.turbo/
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ===== ENVIRONMENT VARIABLES =====
+.env
+.env.local
+.env.development.local  
+.env.test.local
+.env.production.local
+# Keep .env.example for reference
+
+# ===== LOGS =====
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ===== RUNTIME DATA =====
+pids/
+*.pid
+*.seed
+*.pid.lock
+lib-cov/
+
+# ===== TESTING =====
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+junit.xml
+
+# ===== TYPESCRIPT =====
+*.tsbuildinfo
+typings/
+*.d.ts.map
+
+# ===== CACHING =====
+.npm/
+.eslintcache
+.stylelintcache
+.node_repl_history
+
+# ===== PACKAGE MANAGERS =====
+*.tgz
+.yarn-integrity
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===== IDE & EDITORS =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ===== OS GENERATED =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ===== TEMPORARY FILES =====
+tmp/
+temp/
+*.tmp
+*.temp
+.grunt/
+.lock-wscript
+
+# ===== PROJECT SPECIFIC =====
+backend/data/backups/
+backend/uploads/
+backend/logs/
+frontend/public/uploads/
+*.sqlite
+*.sqlite3
+*.db
+
+# ===== SECURITY =====
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ===== DOCUMENTATION BUILD =====
+docs/build/
+.docusaurus/
+
+# ===== STORYBOOK =====
+.out/
+.storybook-out/
+storybook-static/
