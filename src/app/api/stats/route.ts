@@ -17,11 +17,13 @@ export async function GET() {
     }
 
     const stats = {
-      totalBlockchains: blockchains.length,
-      totalUsers: 0, // Placeholder - can be implemented later
-      totalTransactions: blockchains.reduce((acc: number, blockchain: any) => {
+      totalBlockchains: blockchains.length || 0,
+      totalUsers: 0, // Placeholder - can be implemented later  
+      totalPublished: blockchains.filter((b: any) => b.isPublished).length || 0,
+      totalBlocks: blockchains.reduce((acc: number, blockchain: any) => {
         return acc + (blockchain.blocks ? blockchain.blocks.length : 0)
-      }, 0)
+      }, 0),
+      connectedUsers: 0 // Placeholder for WebSocket connections
     }
 
     return NextResponse.json(stats)

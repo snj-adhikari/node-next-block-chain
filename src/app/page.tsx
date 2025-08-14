@@ -144,10 +144,10 @@ export default function HomePage() {
               className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
             >
               {[
-                { label: 'Blockchains Created', value: stats.totalBlockchains, icon: Box },
-                { label: 'Active Users', value: stats.totalUsers, icon: Users },
-                { label: 'Published Blockchains', value: stats.totalPublished, icon: Globe },
-                { label: 'Total Blocks Mined', value: stats.totalBlocks, icon: TrendingUp },
+                { label: 'Blockchains Created', value: stats.totalBlockchains || 0, icon: Box },
+                { label: 'Active Users', value: stats.totalUsers || 0, icon: Users },
+                { label: 'Published Blockchains', value: stats.totalPublished || 0, icon: Globe },
+                { label: 'Total Blocks Mined', value: stats.totalBlocks || 0, icon: TrendingUp },
               ].map((stat) => (
                 <Card key={stat.label} className="text-center">
                   <CardContent className="pt-4">
