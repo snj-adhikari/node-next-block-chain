@@ -566,5 +566,532 @@
       "isValid": true,
       "errors": []
     }
+  },
+  {
+    "id": "45318c23-45e3-4e15-b555-186cee6ce023",
+    "metadata": {
+      "id": "45318c23-45e3-4e15-b555-186cee6ce023",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user-123",
+      "createdAt": "2025-08-14T14:19:42.898Z",
+      "updatedAt": "2025-08-14T14:19:42.899Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 3
+      }
+    },
+    "difficulty": 3,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.899Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "cb72254f8dbde19479e3ea4413615b640b514cce5c48bd3a77d23ed1c8809a0e",
+        "nonce": 0,
+        "creator": "test-user-123",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "84b8a767-362b-4193-b214-dfd6d13fc643",
+    "metadata": {
+      "id": "84b8a767-362b-4193-b214-dfd6d13fc643",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.905Z",
+      "updatedAt": "2025-08-14T14:19:42.905Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 2
+      }
+    },
+    "difficulty": 2,
+    "miningReward": 25,
+    "maxSupply": 500000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.905Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "0f931fadde3294eb4570e796da46988c48f5ad8f9945b023d0e91fad864cca34",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "18f45608-de0c-4487-a320-ef420e5b0a97",
+    "metadata": {
+      "id": "18f45608-de0c-4487-a320-ef420e5b0a97",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.910Z",
+      "updatedAt": "2025-08-14T14:19:42.910Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.910Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "661ba3f488a292f8b68b3b3a211c63cabd490b0241bd60799a966e7692613943",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "320019b9-1b5f-44ae-abef-7bac771e1a3d",
+    "metadata": {
+      "id": "320019b9-1b5f-44ae-abef-7bac771e1a3d",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "user1",
+      "createdAt": "2025-08-14T14:19:42.918Z",
+      "updatedAt": "2025-08-14T14:19:42.918Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 2
+      }
+    },
+    "difficulty": 2,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.918Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "f266bdecbd8d8d453fef5e83b4ec5de67f36275782681c02547555b5f75b84fa",
+        "nonce": 0,
+        "creator": "user1",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "00c0abb1-0d42-4e23-925d-056499451f2b",
+    "metadata": {
+      "id": "00c0abb1-0d42-4e23-925d-056499451f2b",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "user2",
+      "createdAt": "2025-08-14T14:19:42.919Z",
+      "updatedAt": "2025-08-14T14:19:42.919Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 2
+      }
+    },
+    "difficulty": 2,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.919Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "812def08446081d0aa59336a04166342ca95bd203bca7eb44dcb3f98b6665fad",
+        "nonce": 0,
+        "creator": "user2",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "d1565923-6531-4ec8-a6c0-be68186e01d4",
+    "metadata": {
+      "id": "d1565923-6531-4ec8-a6c0-be68186e01d4",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.924Z",
+      "updatedAt": "2025-08-14T14:19:42.928Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 2,
+        "totalTransactions": 1,
+        "avgMiningTime": 2,
+        "totalMiningTime": 2,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "completed",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.924Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "b23b98bd81a30b6cbd3484d325b5dca3568028671e7b98a79628bec00c4ff888",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      },
+      {
+        "index": 1,
+        "timestamp": "2025-08-14T14:19:42.926Z",
+        "transactions": [
+          {
+            "from": "system",
+            "to": "test-user",
+            "amount": 50,
+            "timestamp": "2025-08-14T14:19:42.926Z"
+          }
+        ],
+        "previousHash": "b23b98bd81a30b6cbd3484d325b5dca3568028671e7b98a79628bec00c4ff888",
+        "hash": "0360a9ace5d5cb6c7711fe48fe7f3f643f3961224e95780f08279c943096b2f6",
+        "nonce": 20,
+        "creator": "test-user",
+        "miningTime": 2
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "8f06ae1f-a85f-4bd2-b381-f03bf6bd3f37",
+    "metadata": {
+      "id": "8f06ae1f-a85f-4bd2-b381-f03bf6bd3f37",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.930Z",
+      "updatedAt": "2025-08-14T14:19:42.932Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 2,
+        "totalTransactions": 1,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "completed",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.930Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "1d91d8d352bbf99e03eea9fbc6dac3fb4be64625087975e3f86fb8f8697e8fb9",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      },
+      {
+        "index": 1,
+        "timestamp": "2025-08-14T14:19:42.931Z",
+        "transactions": [
+          {
+            "from": "system",
+            "to": "test-user",
+            "amount": 50,
+            "timestamp": "2025-08-14T14:19:42.931Z"
+          }
+        ],
+        "previousHash": "1d91d8d352bbf99e03eea9fbc6dac3fb4be64625087975e3f86fb8f8697e8fb9",
+        "hash": "00fc966c409da1108d8b722b8ba419d266af7ecfed8616db4c100e43bf23be33",
+        "nonce": 12,
+        "creator": "test-user",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "48a998a8-7f32-4589-840a-3c475872e6cc",
+    "metadata": {
+      "id": "48a998a8-7f32-4589-840a-3c475872e6cc",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.933Z",
+      "updatedAt": "2025-08-14T14:19:42.934Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 2,
+        "totalTransactions": 3,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "completed",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.933Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "0891944571556e0ad1ac1303cd2d7ff0bb37cd6b1c693587205a466f80073238",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      },
+      {
+        "index": 1,
+        "timestamp": "2025-08-14T14:19:42.934Z",
+        "transactions": [
+          {
+            "from": "wallet5e6f7a8b9c0d",
+            "to": "wallet4d5e6f7a8b9c",
+            "amount": 40.69,
+            "timestamp": "2025-08-14T14:19:42.933Z",
+            "fee": 1.85
+          },
+          {
+            "from": "wallet5e6f7a8b9c0d",
+            "to": "wallet4d5e6f7a8b9c",
+            "amount": 95.16,
+            "timestamp": "2025-08-14T14:19:42.933Z",
+            "fee": 4.75
+          },
+          {
+            "from": "system",
+            "to": "test-user",
+            "amount": 50,
+            "timestamp": "2025-08-14T14:19:42.934Z"
+          }
+        ],
+        "previousHash": "0891944571556e0ad1ac1303cd2d7ff0bb37cd6b1c693587205a466f80073238",
+        "hash": "03b53ac1e91e3e5521cbeacbaf960ae5d35fab2a043f595a199e08f06184dc1b",
+        "nonce": 1,
+        "creator": "test-user",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "8ac2c574-0edd-488f-ab16-722a8cff1398",
+    "metadata": {
+      "id": "8ac2c574-0edd-488f-ab16-722a8cff1398",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.936Z",
+      "updatedAt": "2025-08-14T14:19:42.936Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.936Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "fad067fbe6008e6cf27af37fa3bc0edc880d7569e6c31bab1203d89d5c55f251",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "ba52ecad-2bd1-4c84-a1b3-48c584ace798",
+    "metadata": {
+      "id": "ba52ecad-2bd1-4c84-a1b3-48c584ace798",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.938Z",
+      "updatedAt": "2025-08-14T14:19:42.938Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.938Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "401cecb9e7136b50383ac0ced099e397ce9f6b1580f7feb887832e92824333ae",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  },
+  {
+    "id": "5599e316-f46c-4dbf-a2a0-f999a1db7e0f",
+    "metadata": {
+      "id": "5599e316-f46c-4dbf-a2a0-f999a1db7e0f",
+      "name": "TestCoin",
+      "description": "A test cryptocurrency",
+      "creator": "test-user",
+      "createdAt": "2025-08-14T14:19:42.940Z",
+      "updatedAt": "2025-08-14T14:19:42.940Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 1
+      }
+    },
+    "difficulty": 1,
+    "miningReward": 50,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T14:19:42.940Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "bcf1d3199b2f76fc9c2751b9c0af2bba8961ce384d3a9272425a893e32b0df18",
+        "nonce": 0,
+        "creator": "test-user",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
   }
 ]
