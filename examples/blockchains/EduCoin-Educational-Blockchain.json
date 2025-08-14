@@ -1,0 +1,110 @@
+{
+  "id": "demo-educational-blockchain",
+  "metadata": {
+    "id": "demo-educational-blockchain",
+    "name": "EduCoin",
+    "description": "An educational blockchain designed for learning cryptocurrency and blockchain concepts. Perfect for classrooms and hands-on tutorials.",
+    "creator": "blockchain-generator-team",
+    "createdAt": "2024-08-14T10:00:00.000Z",
+    "updatedAt": "2024-08-14T10:00:00.000Z",
+    "isPublished": true,
+    "tags": ["education", "learning", "tutorial", "beginner-friendly"],
+    "stats": {
+      "totalBlocks": 3,
+      "totalTransactions": 2,
+      "avgMiningTime": 1250,
+      "totalMiningTime": 2500,
+      "difficulty": 2
+    }
+  },
+  "symbol": "EDU",
+  "difficulty": 2,
+  "reward": 50,
+  "maxSupply": 1000000,
+  "status": "active",
+  "chain": [
+    {
+      "index": 0,
+      "timestamp": "2024-08-14T10:00:00.000Z",
+      "transactions": [],
+      "previousHash": "0",
+      "hash": "000abc123def456789012345678901234567890123456789012345678901234567",
+      "nonce": 142,
+      "creator": "blockchain-generator-team",
+      "data": "Genesis Block - EduCoin: Teaching blockchain technology through hands-on experience",
+      "miningTime": 0
+    },
+    {
+      "index": 1,
+      "timestamp": "2024-08-14T10:05:00.000Z",
+      "transactions": [
+        {
+          "from": "genesis",
+          "to": "student-wallet-1",
+          "amount": 50,
+          "type": "reward",
+          "description": "Block mining reward"
+        }
+      ],
+      "previousHash": "000abc123def456789012345678901234567890123456789012345678901234567",
+      "hash": "000def456abc789012345678901234567890123456789012345678901234567890",
+      "nonce": 298,
+      "creator": "student-miner-1",
+      "data": "First mined block - demonstrating proof of work",
+      "miningTime": 1200
+    },
+    {
+      "index": 2,
+      "timestamp": "2024-08-14T10:10:00.000Z", 
+      "transactions": [
+        {
+          "from": "student-wallet-1",
+          "to": "student-wallet-2", 
+          "amount": 25,
+          "type": "transfer",
+          "description": "Student-to-student transaction example"
+        },
+        {
+          "from": "genesis",
+          "to": "student-wallet-3",
+          "amount": 50,
+          "type": "reward",
+          "description": "Block mining reward"
+        }
+      ],
+      "previousHash": "000def456abc789012345678901234567890123456789012345678901234567890",
+      "hash": "000789012def345678901234567890123456789012345678901234567890123456",
+      "nonce": 376,
+      "creator": "student-miner-2",
+      "data": "Transaction block - showing peer-to-peer transfers",
+      "miningTime": 1300
+    }
+  ],
+  "pendingTransactions": [],
+  "validation": {
+    "isValid": true,
+    "errors": []
+  },
+  "usage": {
+    "downloads": 245,
+    "lastDownloaded": "2024-08-14T11:30:00.000Z",
+    "educationalUse": true,
+    "institutionsUsing": [
+      "MIT Blockchain Course",
+      "Stanford CS Curriculum",
+      "Harvard Business School",
+      "UC Berkeley Engineering"
+    ]
+  },
+  "learningObjectives": [
+    "Understanding blockchain structure and block linking",
+    "Proof of work mining concept demonstration", 
+    "Transaction validation and processing",
+    "Hash function properties and security",
+    "Decentralized consensus mechanisms",
+    "Cryptocurrency economics and tokenomics"
+  ],
+  "format": "Blockchain Generator JSON v1.0",
+  "generatedBy": "Blockchain Generator Platform",
+  "downloadedAt": "2024-08-14T12:00:00.000Z"
+}

@@ -1,0 +1,204 @@
+{
+  "id": "demo-gaming-blockchain", 
+  "metadata": {
+    "id": "demo-gaming-blockchain",
+    "name": "GameToken",
+    "description": "A gaming-focused blockchain for in-game asset management, player rewards, and virtual economy transactions. Demonstrates real-world blockchain applications.",
+    "creator": "game-developer-studio",
+    "createdAt": "2024-08-10T15:30:00.000Z",
+    "updatedAt": "2024-08-14T09:20:00.000Z",
+    "isPublished": true,
+    "tags": ["gaming", "nft", "virtual-economy", "rewards", "assets"],
+    "stats": {
+      "totalBlocks": 5,
+      "totalTransactions": 8,
+      "avgMiningTime": 800,
+      "totalMiningTime": 3200,
+      "difficulty": 3
+    }
+  },
+  "symbol": "GAME",
+  "difficulty": 3,
+  "reward": 100,
+  "maxSupply": 2000000,
+  "status": "active",
+  "chain": [
+    {
+      "index": 0,
+      "timestamp": "2024-08-10T15:30:00.000Z",
+      "transactions": [],
+      "previousHash": "0",
+      "hash": "000123abc456def789012345678901234567890123456789012345678901234567",
+      "nonce": 89,
+      "creator": "game-developer-studio",
+      "data": "Genesis Block - GameToken: Powering the future of gaming economies",
+      "miningTime": 0
+    },
+    {
+      "index": 1, 
+      "timestamp": "2024-08-10T16:00:00.000Z",
+      "transactions": [
+        {
+          "from": "genesis",
+          "to": "player-001",
+          "amount": 100,
+          "type": "reward",
+          "description": "New player welcome bonus"
+        },
+        {
+          "from": "genesis", 
+          "to": "game-treasury",
+          "amount": 1000,
+          "type": "initial-supply",
+          "description": "Initial game treasury allocation"
+        }
+      ],
+      "previousHash": "000123abc456def789012345678901234567890123456789012345678901234567",
+      "hash": "000456def789abc012345678901234567890123456789012345678901234567890",
+      "nonce": 234,
+      "creator": "game-server-01",
+      "data": "Player onboarding and treasury setup",
+      "miningTime": 750
+    },
+    {
+      "index": 2,
+      "timestamp": "2024-08-11T10:15:00.000Z",
+      "transactions": [
+        {
+          "from": "player-001",
+          "to": "nft-marketplace",
+          "amount": 50,
+          "type": "nft-purchase", 
+          "description": "Legendary Sword NFT purchase",
+          "assetId": "sword-legendary-001",
+          "assetType": "weapon"
+        },
+        {
+          "from": "game-treasury",
+          "to": "player-002",
+          "amount": 75,
+          "type": "achievement-reward",
+          "description": "Level 10 completion reward"
+        }
+      ],
+      "previousHash": "000456def789abc012345678901234567890123456789012345678901234567890", 
+      "hash": "000789abc012def345678901234567890123456789012345678901234567890123",
+      "nonce": 567,
+      "creator": "game-server-02",
+      "data": "NFT marketplace transaction and player rewards",
+      "miningTime": 820
+    },
+    {
+      "index": 3,
+      "timestamp": "2024-08-12T14:45:00.000Z",
+      "transactions": [
+        {
+          "from": "player-002",
+          "to": "player-003",
+          "amount": 25,
+          "type": "p2p-trade",
+          "description": "Player-to-player asset trade",
+          "assetId": "potion-health-005",
+          "assetType": "consumable"
+        },
+        {
+          "from": "guild-treasury",
+          "to": "player-001",
+          "amount": 200,
+          "type": "guild-reward", 
+          "description": "Guild raid completion bonus"
+        },
+        {
+          "from": "game-treasury",
+          "to": "tournament-pool",
+          "amount": 500,
+          "type": "tournament-funding",
+          "description": "Weekly tournament prize pool"
+        }
+      ],
+      "previousHash": "000789abc012def345678901234567890123456789012345678901234567890123",
+      "hash": "000012def345abc678901234567890123456789012345678901234567890123456",
+      "nonce": 789,
+      "creator": "game-server-03", 
+      "data": "P2P trading and tournament funding",
+      "miningTime": 850
+    },
+    {
+      "index": 4,
+      "timestamp": "2024-08-13T18:20:00.000Z",
+      "transactions": [
+        {
+          "from": "tournament-pool",
+          "to": "player-001",
+          "amount": 150,
+          "type": "tournament-prize",
+          "description": "1st place tournament winner"
+        },
+        {
+          "from": "tournament-pool", 
+          "to": "player-004",
+          "amount": 100,
+          "type": "tournament-prize",
+          "description": "2nd place tournament winner"
+        },
+        {
+          "from": "nft-marketplace",
+          "to": "player-003", 
+          "amount": 30,
+          "type": "nft-sale-commission",
+          "description": "Creator royalty from NFT resale"
+        }
+      ],
+      "previousHash": "000012def345abc678901234567890123456789012345678901234567890123456",
+      "hash": "000345abc678def901234567890123456789012345678901234567890123456789",
+      "nonce": 456,
+      "creator": "tournament-server",
+      "data": "Tournament prize distribution and NFT royalties",
+      "miningTime": 780
+    }
+  ],
+  "pendingTransactions": [
+    {
+      "from": "player-005",
+      "to": "game-treasury",
+      "amount": 10,
+      "type": "cosmetic-purchase",
+      "description": "Character skin purchase",
+      "assetId": "skin-dragon-scale",
+      "assetType": "cosmetic"
+    }
+  ],
+  "validation": {
+    "isValid": true,
+    "errors": []
+  },
+  "gameIntegration": {
+    "gameTitle": "Crypto Legends Online",
+    "playerCount": 15420,
+    "activeWallets": 8934,
+    "totalAssets": 45230,
+    "economicHealth": "excellent"
+  },
+  "usage": {
+    "downloads": 312,
+    "lastDownloaded": "2024-08-14T11:45:00.000Z",
+    "gameDevUse": true,
+    "studiosUsing": [
+      "Blockchain Gaming Studios",
+      "CryptoPlay Interactive", 
+      "Virtual Worlds Inc",
+      "GameFi Development Lab"
+    ]
+  },
+  "useCases": [
+    "In-game currency and transactions",
+    "NFT asset ownership and trading",
+    "Player reward and achievement systems", 
+    "Guild and tournament prize pools",
+    "Virtual marketplace operations",
+    "Cross-game asset interoperability"
+  ],
+  "format": "Blockchain Generator JSON v1.0",
+  "generatedBy": "Blockchain Generator Platform",
+  "downloadedAt": "2024-08-14T12:00:00.000Z"
+}

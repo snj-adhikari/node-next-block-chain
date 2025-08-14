@@ -30,6 +30,9 @@ const fileService = new FileService();
 const blockchainService = new BlockchainService();
 const notificationService = new NotificationService(io);
 
+// Trust proxy for proper IP detection
+app.set('trust proxy', true);
+
 // Security middleware
 app.use(helmet({
   crossOriginEmbedderPolicy: false, // Needed for development

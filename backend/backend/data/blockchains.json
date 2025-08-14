@@ -1,0 +1,43 @@
+[
+  {
+    "id": "2448f633-7e24-430c-aa18-8b1bf04ccc44",
+    "metadata": {
+      "id": "2448f633-7e24-430c-aa18-8b1bf04ccc44",
+      "name": "TestCoin",
+      "description": "A test blockchain",
+      "creator": "test-user-12345",
+      "createdAt": "2025-08-14T12:41:37.399Z",
+      "updatedAt": "2025-08-14T12:41:37.399Z",
+      "isPublished": false,
+      "tags": [],
+      "stats": {
+        "totalBlocks": 1,
+        "totalTransactions": 0,
+        "avgMiningTime": 0,
+        "totalMiningTime": 0,
+        "difficulty": 2
+      }
+    },
+    "difficulty": 2,
+    "maxSupply": 1000000,
+    "status": "creating",
+    "chain": [
+      {
+        "index": 0,
+        "timestamp": "2025-08-14T12:41:37.399Z",
+        "transactions": [],
+        "previousHash": "0",
+        "hash": "3ac7bef8cac17936a70380bd97b18441e0bcc8e977750db96b1bf4224d555bcc",
+        "nonce": 0,
+        "creator": "test-user-12345",
+        "data": "Genesis Block - The beginning of a new blockchain",
+        "miningTime": 0
+      }
+    ],
+    "pendingTransactions": [],
+    "validation": {
+      "isValid": true,
+      "errors": []
+    }
+  }
+]
