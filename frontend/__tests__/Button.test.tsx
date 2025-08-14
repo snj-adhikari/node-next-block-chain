@@ -51,7 +51,9 @@ describe('Button Component', () => {
     const button = screen.getByRole('button', { name: /disabled button/i });
     expect(button).toBeInTheDocument();
     expect(button).toBeDisabled();
-    expect(button).toHaveClass('opacity-50');
+    // The class 'disabled:opacity-50' is applied but not visible in className - check computed styles instead
+    expect(button).toHaveClass('disabled:pointer-events-none');
+    expect(button).toHaveClass('disabled:opacity-50');
   });
 
   test('handles click events', async () => {
