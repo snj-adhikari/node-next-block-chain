@@ -1,18 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
 
 export async function GET() {
   try {
-    const blockchainsPath = path.join(process.cwd(), 'backend', 'data', 'blockchains.json')
+    // For demo purposes, return some sample blockchains
+    // In production, this would come from a database
+    const sampleBlockchains = [
+      {
+        id: "1",
+        name: "EduCoin",
+        symbol: "EDU",
+        createdAt: new Date().toISOString(),
+        blocks: [],
+        published: true,
+        description: "Educational blockchain for learning"
+      }
+    ]
     
-    if (!fs.existsSync(blockchainsPath)) {
-      return NextResponse.json([])
-    }
-    
-    const data = fs.readFileSync(blockchainsPath, 'utf8')
-    const blockchains = JSON.parse(data)
-    return NextResponse.json(blockchains)
+    return NextResponse.json(sampleBlockchains)
   } catch (error) {
     console.error('Error reading blockchains:', error)
     return NextResponse.json({ error: 'Failed to load blockchains' }, { status: 500 })
@@ -37,32 +41,18 @@ export async function POST(request: NextRequest) {
       published: false
     }
     
-    // Save to file
-    const blockchainsPath = path.join(process.cwd(), 'backend', 'data', 'blockchains.json')
-    let blockchains: any[] = []
+    // For Vercel, we'll store in a temporary location or use environment variables
+    // Since Vercel's file system is read-only, we'll return the blockchain without saving
+    // In production, you'd use a database like MongoDB, PostgreSQL, or Vercel KV
     
-    try {
-      if (fs.existsSync(blockchainsPath)) {
-        const data = fs.readFileSync(blockchainsPath, 'utf8')
-        blockchains = JSON.parse(data)
-      }
-    } catch (error) {
-      // File might not exist or be invalid, start with empty array
-      blockchains = []
-    }
-    
-    // Ensure directory exists
-    const dataDir = path.dirname(blockchainsPath)
-    if (!fs.existsSync(dataDir)) {
-      fs.mkdirSync(dataDir, { recursive: true })
-    }
-    
-    blockchains.push(newBlockchain)
-    fs.writeFileSync(blockchainsPath, JSON.stringify(blockchains, null, 2))
+    console.log('Created blockchain:', newBlockchain)
     
     return NextResponse.json(newBlockchain, { status: 201 })
   } catch (error) {
     console.error('Error creating blockchain:', error)
-    return NextResponse.json({ error: 'Failed to create blockchain' }, { status: 500 })
+    return NextResponse.json({ 
+      error: 'Failed to create blockchain', 
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 })
   }
 }

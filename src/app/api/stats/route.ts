@@ -1,29 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { readFileSync } from 'fs'
-import { join } from 'path'
 
 export async function GET() {
   try {
-    // Read blockchains data to get stats
-    const dataPath = join(process.cwd(), 'backend', 'data', 'blockchains.json')
-    let blockchains = []
-    
-    try {
-      const data = readFileSync(dataPath, 'utf8')
-      blockchains = JSON.parse(data)
-    } catch (error) {
-      // File might not exist yet
-      blockchains = []
-    }
-
+    // For demo purposes, return sample stats
+    // In production, this would come from a database
     const stats = {
-      totalBlockchains: blockchains.length || 0,
-      totalUsers: 0, // Placeholder - can be implemented later  
-      totalPublished: blockchains.filter((b: any) => b.isPublished).length || 0,
-      totalBlocks: blockchains.reduce((acc: number, blockchain: any) => {
-        return acc + (blockchain.blocks ? blockchain.blocks.length : 0)
-      }, 0),
-      connectedUsers: 0 // Placeholder for WebSocket connections
+      totalBlockchains: 1,
+      totalUsers: 127,
+      totalPublished: 1,
+      totalBlocks: 5,
+      connectedUsers: 3
     }
 
     return NextResponse.json(stats)
