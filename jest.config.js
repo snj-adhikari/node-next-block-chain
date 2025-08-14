@@ -7,7 +7,7 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/frontend/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/', '<rootDir>/backend/'],
   moduleNameMapper: {
@@ -29,8 +29,8 @@ const customJestConfig = {
   coverageReporters: ['text', 'lcov', 'html'],
   testTimeout: 10000,
   testMatch: [
-    '<rootDir>/frontend/__tests__/**/*.{js,jsx,ts,tsx}',
-    '<rootDir>/frontend/**/*.(test|spec).{js,jsx,ts,tsx}'
+    '<rootDir>/__tests__/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/**/*.(test|spec).{js,jsx,ts,tsx}'
   ],
   verbose: true,
 };

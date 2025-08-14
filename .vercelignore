@@ -7,6 +7,10 @@
 # Dependencies
 node_modules/
 
+# Backend (using Next.js API routes instead)
+backend/
+examples/
+
 # Production build
 .next/
 out/
