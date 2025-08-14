@@ -129,3 +129,4 @@ docs/build/
 .out/
 .storybook-out/
 storybook-static/
+.vercel

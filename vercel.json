@@ -1,20 +1,22 @@
 {
   "version": 2,
-  "name": "blockchain-generator",
-  "functions": {
-    "api/backend.ts": {
-      "maxDuration": 30,
-      "memory": 1024
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/health",
-      "destination": "/api/backend"
-    },
+  "headers": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/backend"
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
     }
   ]
 }
