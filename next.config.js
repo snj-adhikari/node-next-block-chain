@@ -2,24 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: process.env.NODE_ENV === 'development' 
-          ? 'http://localhost:8001/api/:path*'
-          : '/api/:path*',
-      },
-    ]
-  },
   images: {
     domains: ['lh3.googleusercontent.com', 'platform-lookaside.fbsbx.com'],
   },
   experimental: {
     serverComponentsExternalPackages: ['socket.io-client'],
   },
-  // Vercel deployment configuration
-  output: 'standalone',
   trailingSlash: false,
   // Environment variables for production
   env: {
