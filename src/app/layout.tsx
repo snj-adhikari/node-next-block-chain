@@ -21,33 +21,26 @@ export const metadata: Metadata = {
   creator: 'Blockchain Generator',
   publisher: 'Blockchain Generator',
   robots: 'index, follow',
+  metadataBase: new URL('https://notjustweb-block-chain.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://blockchain-generator.vercel.app',
+    url: 'https://notjustweb-block-chain.vercel.app',
     title: 'Blockchain Generator | Create Custom Blockchains',
     description: 'Generate, mine, and publish custom blockchains with real-time progress tracking.',
     siteName: 'Blockchain Generator',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Blockchain Generator - Create Custom Blockchains',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Blockchain Generator | Create Custom Blockchains',
     description: 'Generate, mine, and publish custom blockchains with real-time progress tracking.',
-    images: ['/og-image.jpg'],
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#0ea5e9' },
     { media: '(prefers-color-scheme: dark)', color: '#075985' },
