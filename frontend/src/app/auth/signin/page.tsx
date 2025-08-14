@@ -159,9 +159,9 @@ export default function SignInPage() {
             {/* Buy Me Coffee */}
             <div className="border-t pt-6 text-center">
               <h4 className="font-medium mb-3">Support Our Development</h4>
-              <a 
-                href="https://buymeacoffee.com/blockchainbuilder" 
-                target="_blank" 
+              <a
+                href="https://buymeacoffee.com/notjustweb" 
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
               >

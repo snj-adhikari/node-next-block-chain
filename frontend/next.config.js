@@ -18,6 +18,13 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['socket.io-client'],
   },
+  // Vercel deployment configuration
+  output: 'standalone',
+  trailingSlash: false,
+  // Environment variables for production
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || '/api',
+  },
 }
 
 module.exports = nextConfig

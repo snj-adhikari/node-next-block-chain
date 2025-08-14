@@ -57,10 +57,14 @@
     "start:frontend": "cd frontend && npm start",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "setup": "npm run install:all && npm run build",
-    "reset": "npm run clean && rm -rf node_modules backend/node_modules frontend/node_modules package-lock.json backend/package-lock.json frontend/package-lock.json"
+    "reset": "npm run clean && rm -rf node_modules backend/node_modules frontend/node_modules package-lock.json backend/package-lock.json frontend/package-lock.json",
+    "vercel-build": "npm run build:frontend && npm run build:backend",
+    "deploy": "vercel",
+    "deploy:prod": "vercel --prod"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "vercel": "^45.0.9"
   },
   "engines": {
     "node": ">=18.0.0",

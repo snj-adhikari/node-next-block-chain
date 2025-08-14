@@ -426,7 +426,7 @@ export default function GalleryPage() {
                   </Button>
                 </Link>
                 <a 
-                  href="https://buymeacoffee.com/blockchainbuilder" 
+                  href="https://buymeacoffee.com/notjustweb" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

@@ -131,34 +131,36 @@ const NotificationModal = ({
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
-      <div className={`rounded-lg border p-4 ${colorMap[type]}`}>
-        <div className="flex items-start space-x-3">
-          <div className="flex-shrink-0">
-            {iconMap[type]}
-          </div>
-          <div className="flex-1">
-            <p className="text-sm font-medium text-foreground mb-2">
-              {title}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              {message}
-            </p>
+    <div data-testid="notification-modal">
+      <Modal isOpen={isOpen} onClose={onClose} title={title} size="sm">
+        <div className={`rounded-lg border p-4 ${colorMap[type]}`}>
+          <div className="flex items-start space-x-3">
+            <div className="flex-shrink-0">
+              {iconMap[type]}
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-medium text-foreground mb-2" data-testid="modal-title">
+                {title}
+              </p>
+              <p className="text-sm text-muted-foreground" data-testid="modal-message">
+                {message}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex justify-end space-x-3 mt-6">
-        <Button variant="outline" onClick={onClose}>
-          Close
-        </Button>
-        {actionLabel && onAction && (
-          <Button onClick={onAction}>
-            {actionLabel}
+        <div className="flex justify-end space-x-3 mt-6">
+          <Button variant="outline" onClick={onClose} data-testid="modal-close-button">
+            Close
           </Button>
-        )}
-      </div>
-    </Modal>
+          {actionLabel && onAction && (
+            <Button onClick={onAction} data-testid="modal-action-button">
+              {actionLabel}
+            </Button>
+          )}
+        </div>
+      </Modal>
+    </div>
   )
 }
 
