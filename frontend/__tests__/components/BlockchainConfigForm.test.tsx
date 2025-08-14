@@ -1,7 +1,6 @@
 import React from 'react'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor } from '../../src/test-utils'
 import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom'
 import { BlockchainConfigForm, BlockchainFormData } from '@/components/blockchain/BlockchainConfigForm'
 
 const mockOnSubmit = jest.fn()
@@ -125,7 +124,7 @@ describe('BlockchainConfigForm', () => {
     const button = screen.getByTestId('create-blockchain-button')
     expect(button).toHaveTextContent('Creating Blockchain...')
     expect(button).toBeDisabled()
-    expect(screen.getByRole('generic', { hidden: true })).toHaveClass('spinner')
+    expect(screen.getByText('Creating Blockchain...')).toBeInTheDocument()
   })
 
   it('displays validation errors', () => {

@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import React from 'react'
+import { render, screen } from '../../src/test-utils'
 import { SupportBanner } from '@/components/common/SupportBanner'
 
 describe('SupportBanner', () => {
@@ -28,7 +28,7 @@ describe('SupportBanner', () => {
   it('opens link in new tab', () => {
     render(<SupportBanner />)
     
-    const link = screen.getByTestId('coffee-link')
+    const link = screen.getByTestId('support-link')
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noopener noreferrer')
   })
@@ -36,15 +36,15 @@ describe('SupportBanner', () => {
   it('applies custom className when provided', () => {
     render(<SupportBanner className="custom-banner-class" />)
     
-    const banner = screen.getByTestId('support-banner')
-    expect(banner).toHaveClass('custom-banner-class')
+    const container = screen.getByTestId('support-banner').parentElement
+    expect(container).toHaveClass('custom-banner-class')
   })
 
   it('has proper styling classes', () => {
     render(<SupportBanner />)
     
-    const banner = screen.getByTestId('support-banner')
-    expect(banner).toHaveClass('text-center')
+    const container = screen.getByTestId('support-banner').parentElement
+    expect(container).toHaveClass('text-center')
   })
 
   it('renders with accessible link text', () => {

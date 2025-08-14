@@ -1,6 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render, screen } from '../../src/test-utils'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Box, Star } from 'lucide-react'
 

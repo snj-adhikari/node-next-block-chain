@@ -1,5 +1,4 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import { render, screen } from '../../src/test-utils'
 import { BackNavigation } from '@/components/common/BackNavigation'
 
 describe('BackNavigation', () => {

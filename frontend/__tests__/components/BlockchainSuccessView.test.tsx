@@ -1,7 +1,6 @@
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '../../src/test-utils'
 import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom'
 import { BlockchainSuccessView, CreatedBlockchain } from '@/components/blockchain/BlockchainSuccessView'
 
 const mockBlockchain: CreatedBlockchain = {
