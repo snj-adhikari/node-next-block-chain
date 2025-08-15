@@ -1,6 +1,7 @@
 import { Blockchain, BlockchainConfig, BlockchainStatus } from '../models/Blockchain';
 import { Transaction } from '../models/Block';
 import { FileService } from './FileService';
+import { BlockchainValidationError } from '../models/Errors';
 
 export interface MiningProgress {
   blockchainId: string;
@@ -22,10 +23,7 @@ export class BlockchainService {
     console.log(`📦 Creating new blockchain "${config.name}" for user ${creatorId}`);
     
     // Validate configuration
-    const validationResult = this.validateBlockchainConfig(config);
-    if (!validationResult.isValid) {
-      throw new Error(`Invalid blockchain configuration: ${validationResult.errors.join(', ')}`);
-    }
+    this.validateBlockchainConfig(config);
 
     // Create blockchain instance
     const blockchain = new Blockchain(config, creatorId);
@@ -210,7 +208,7 @@ export class BlockchainService {
     return blockchain;
   }
 
-  private validateBlockchainConfig(config: BlockchainConfig): { isValid: boolean; errors: string[] } {
+  private validateBlockchainConfig(config: BlockchainConfig): void {
     const errors: string[] = [];
 
     if (!config.name || config.name.trim().length < 3) {
@@ -237,10 +235,9 @@ export class BlockchainService {
       errors.push('Description must be less than 500 characters');
     }
 
-    return {
-      isValid: errors.length === 0,
-      errors
-    };
+    if (errors.length > 0) {
+      throw new BlockchainValidationError(errors);
+    }
   }
 
   isBlockchainMining(blockchainId: string): boolean {

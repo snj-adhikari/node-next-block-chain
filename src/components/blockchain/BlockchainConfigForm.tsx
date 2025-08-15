@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { AlertCircle, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -31,18 +31,47 @@ const defaultFormData: BlockchainFormData = {
   maxSupply: 1000000
 }
 
-export function BlockchainConfigForm({ onSubmit, isLoading, errors, initialData }: Props) {
+export function BlockchainConfigForm({ onSubmit, isLoading, errors: apiErrors, initialData }: Props) {
   const [formData, setFormData] = useState<BlockchainFormData>({
     ...defaultFormData,
     ...initialData
   })
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (apiErrors) {
+      setErrors(apiErrors);
+    }
+  }, [apiErrors]);
 
   const handleInputChange = (field: keyof BlockchainFormData, value: string | number) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) {
+      newErrors.name = 'Blockchain name is required';
+    } else if (formData.name.length < 3) {
+      newErrors.name = 'Name must be at least 3 characters';
+    }
+    if (!formData.symbol.trim()) {
+      newErrors.symbol = 'Symbol is required';
+    }
+    if (!formData.description.trim()) {
+      newErrors.description = 'Description is required';
+    }
+    return newErrors;
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
     onSubmit(formData)
   }
 
@@ -226,6 +255,12 @@ export function BlockchainConfigForm({ onSubmit, isLoading, errors, initialData 
           <div className="text-center text-sm text-muted-foreground" data-testid="form-note">
             No account required • Free to use • Instant creation
           </div>
+
+          {errors.api && (
+            <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert" data-testid="api-error">
+              {errors.api}
+            </div>
+          )}
         </form>
       </CardContent>
     </Card>

@@ -1,58 +1,123 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { BlockchainService } from '../../../../backend/src/services/BlockchainService'
+import { BlockchainValidationError } from '../../../../backend/src/models/Errors'
+
+const blockchainService = new BlockchainService()
 
 export async function GET() {
   try {
-    // For demo purposes, return some sample blockchains
-    // In production, this would come from a database
-    const sampleBlockchains = [
-      {
-        id: "1",
-        name: "EduCoin",
-        symbol: "EDU",
-        createdAt: new Date().toISOString(),
-        blocks: [],
-        published: true,
-        description: "Educational blockchain for learning"
-      }
-    ]
+    console.log('🔍 GET /api/blockchains - Fetching published blockchains')
     
-    return NextResponse.json(sampleBlockchains)
+    // Get all published blockchains
+    const publishedBlockchains = await blockchainService.getPublishedBlockchains()
+    
+    // Transform to frontend-friendly format
+    const formattedBlockchains = publishedBlockchains.map(blockchain => ({
+      id: blockchain.id,
+      name: blockchain.metadata.name,
+      symbol: blockchain.metadata.name.substring(0, 3).toUpperCase(),
+      description: blockchain.metadata.description,
+      createdAt: blockchain.metadata.createdAt,
+      creator: blockchain.metadata.creator,
+      blocks: blockchain.chain.length,
+      published: blockchain.metadata.isPublished,
+      publishedAt: blockchain.metadata.publishedAt,
+      tags: blockchain.metadata.tags,
+      stats: blockchain.metadata.stats
+    }))
+    
+    console.log(`✅ Successfully fetched ${formattedBlockchains.length} published blockchains`)
+    return NextResponse.json(formattedBlockchains)
+    
   } catch (error) {
-    console.error('Error reading blockchains:', error)
-    return NextResponse.json({ error: 'Failed to load blockchains' }, { status: 500 })
+    console.error('❌ Error reading blockchains:', error)
+    console.error('Stack trace:', error instanceof Error ? error.stack : 'No stack trace')
+    
+    return NextResponse.json({ 
+      error: 'Failed to load blockchains',
+      details: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
+    }, { status: 500 })
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const blockchain = await request.json()
+    console.log('🚀 POST /api/blockchains - Creating new blockchain')
     
-    // Basic validation
-    if (!blockchain.name || !blockchain.symbol) {
-      return NextResponse.json({ error: 'Name and symbol are required' }, { status: 400 })
+    const body = await request.json()
+    console.log('📦 Received blockchain creation request:', body)
+    
+    // Extract blockchain configuration
+    const { name, description, difficulty = 2, miningReward = 50, maxSupply, tags = [], creatorId = 'demo-user' } = body
+    
+    // Create blockchain configuration
+    const blockchainConfig = {
+      name: name.trim(),
+      description: description || `Custom blockchain: ${name}`,
+      difficulty: parseInt(difficulty.toString()),
+      miningReward: parseFloat(miningReward.toString()),
+      maxSupply: maxSupply ? parseFloat(maxSupply.toString()) : undefined,
+      tags: Array.isArray(tags) ? tags : [],
+      genesisData: `Genesis block for ${name} - Created on ${new Date().toISOString()}`
     }
     
-    // Add timestamp and ID
-    const newBlockchain = {
-      ...blockchain,
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-      blocks: [],
-      published: false
+    console.log('⚙️ Blockchain configuration:', blockchainConfig)
+    
+    // Create blockchain using service
+    const blockchain = await blockchainService.createBlockchain(blockchainConfig, creatorId)
+    
+    // Format response for frontend
+    const response = {
+      id: blockchain.id,
+      name: blockchain.metadata.name,
+      description: blockchain.metadata.description,
+      difficulty: blockchain.difficulty,
+      miningReward: blockchain.miningReward,
+      maxSupply: blockchain.maxSupply,
+      status: blockchain.status,
+      createdAt: blockchain.metadata.createdAt,
+      blocks: blockchain.chain.length,
+      published: blockchain.metadata.isPublished,
+      tags: blockchain.metadata.tags,
+      stats: blockchain.metadata.stats,
+      genesisBlock: {
+        index: blockchain.chain[0]?.index,
+        hash: blockchain.chain[0]?.hash,
+        timestamp: blockchain.chain[0]?.timestamp
+      }
     }
     
-    // For Vercel, we'll store in a temporary location or use environment variables
-    // Since Vercel's file system is read-only, we'll return the blockchain without saving
-    // In production, you'd use a database like MongoDB, PostgreSQL, or Vercel KV
+    console.log('✅ Successfully created blockchain:', response.id)
+    return NextResponse.json(response, { status: 201 })
     
-    console.log('Created blockchain:', newBlockchain)
-    
-    return NextResponse.json(newBlockchain, { status: 201 })
   } catch (error) {
-    console.error('Error creating blockchain:', error)
+    console.error('❌ Error creating blockchain:', error)
+    console.error('Stack trace:', error instanceof Error ? error.stack : 'No stack trace')
+    
+    if (error instanceof BlockchainValidationError) {
+      return NextResponse.json({ 
+        error: 'Invalid blockchain configuration',
+        details: error.errors,
+        timestamp: new Date().toISOString()
+      }, { status: 400 })
+    }
+    
+    // Specific error handling for file system errors
+    if (error instanceof Error && error.message.includes('File system error')) {
+      return NextResponse.json({
+        error: 'Internal Server Error',
+        details: 'A problem occurred with our storage system. Please try again later.',
+        timestamp: new Date().toISOString()
+      }, { status: 503 }) // Service Unavailable
+    }
+
+    // Generic error for unexpected issues
     return NextResponse.json({ 
       error: 'Failed to create blockchain', 
-      details: error instanceof Error ? error.message : 'Unknown error'
+      details: 'An unexpected error occurred. Our team has been notified.',
+      timestamp: new Date().toISOString(),
+      requestId: Date.now().toString()
     }, { status: 500 })
   }
 }
