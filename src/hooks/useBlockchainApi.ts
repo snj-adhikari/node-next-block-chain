@@ -9,16 +9,16 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '/api'
 interface UseBlockchainApiReturn {
   createBlockchain: (formData: BlockchainFormData) => Promise<CreatedBlockchain>
   isLoading: boolean
-  error: string | null
+  errors: Record<string, string>
 }
 
 export function useBlockchainApi(): UseBlockchainApiReturn {
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [errors, setErrors] = useState<Record<string, string>>({})
 
   const createBlockchain = async (formData: BlockchainFormData): Promise<CreatedBlockchain> => {
     setIsLoading(true)
-    setError(null)
+    setErrors({})
 
     try {
       const response = await fetch(`${API_BASE_URL}/blockchains`, {
@@ -32,13 +32,28 @@ export function useBlockchainApi(): UseBlockchainApiReturn {
       const data = await response.json()
       
       if (!response.ok) {
+        if (data.details && Array.isArray(data.details)) {
+          const newErrors: Record<string, string> = {};
+          data.details.forEach((error: string) => {
+            if (error.toLowerCase().includes('name')) {
+              newErrors.name = error;
+            } else if (error.toLowerCase().includes('symbol')) {
+              newErrors.symbol = error;
+            } else if (error.toLowerCase().includes('description')) {
+              newErrors.description = error;
+            }
+          });
+          setErrors(newErrors);
+        } else {
+          setErrors({ general: data.error || data.message || 'Failed to create blockchain' });
+        }
         throw new Error(data.error || data.message || 'Failed to create blockchain')
       }
 
       return data
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred'
-      setError(errorMessage)
+      setErrors({ general: errorMessage });
       throw new Error(errorMessage)
     } finally {
       setIsLoading(false)
@@ -48,6 +63,6 @@ export function useBlockchainApi(): UseBlockchainApiReturn {
   return {
     createBlockchain,
     isLoading,
-    error
+    errors
   }
 }
