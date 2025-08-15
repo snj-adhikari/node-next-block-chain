@@ -9,7 +9,7 @@
 - Testing: Jest, React Testing Library
 
 **Active Issues:**
-1. Blockchain creation API returning 500 errors in production
+1. Blockchain creation API returning 500 errors in production – requires improved error handling and comprehensive logging  
 2. Client-side JavaScript errors with stats display
 3. Project naming inconsistencies in Vercel deployment
 4. Missing proper feature branch workflow implementation
@@ -77,13 +77,13 @@
 
 ## **Current Sprint Focus**
 
-**Sprint Goal:** Fix blockchain creation functionality and establish proper development workflow
+**Sprint Goal:** Fix blockchain creation functionality with improved error handling, logging, and deploy under the name "notjustweb-blockchain-generator"
 
 **Active Stories:**
-1. **Fix API 500 Errors** - Investigate and resolve blockchain creation failures
-2. **Improve Error Handling** - Add comprehensive logging and error reporting  
-3. **Establish Testing Pipeline** - Implement automated testing for feature branches
-4. **Deploy Naming Consistency** - Standardize project naming across platforms
+1. **Fix API 500 Errors** - Investigate and resolve blockchain creation failures with robust try-catch, detailed logging, and user-friendly error messages  
+2. **Improve Error Handling** - Add comprehensive logging and error reporting across all endpoints  
+3. **Establish Testing Pipeline** - Implement automated testing for feature branches with production monitoring 
+4. **Deploy Naming Consistency** - Standardize project naming and add runtime monitoring for deployment errors
 
 **Definition of Done:**
 - Feature works in production deployment
