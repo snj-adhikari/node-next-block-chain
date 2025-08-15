@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '../../src/test-utils'
+import { render, screen } from '../test-utils'
 import { PageHeader } from '@/components/common/PageHeader'
 import { Box, Star } from 'lucide-react'
 

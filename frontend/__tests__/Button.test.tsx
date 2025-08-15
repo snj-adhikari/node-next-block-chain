@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 
-import { Button } from '../src/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 describe('Button Component', () => {
   test('renders button with default props', () => {
@@ -51,7 +51,7 @@ describe('Button Component', () => {
     const button = screen.getByRole('button', { name: /disabled button/i });
     expect(button).toBeInTheDocument();
     expect(button).toBeDisabled();
-    expect(button).toHaveClass('opacity-50');
+    expect(button).toHaveClass('disabled:opacity-50');
   });
 
   test('handles click events', async () => {

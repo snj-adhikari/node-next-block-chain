@@ -1,4 +1,4 @@
-import { render, screen } from '../../src/test-utils'
+import { render, screen } from '../test-utils'
 import { BackNavigation } from '@/components/common/BackNavigation'
 
 describe('BackNavigation', () => {

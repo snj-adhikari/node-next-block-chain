@@ -12,7 +12,7 @@ import type { BlockchainFormData } from '@/components/blockchain/BlockchainConfi
 export default function CreateBlockchainPage() {
   const [createdBlockchain, setCreatedBlockchain] = useState<CreatedBlockchain | null>(null)
   const [isDownloading, setIsDownloading] = useState(false)
-  const { createBlockchain, isLoading, error } = useBlockchainApi()
+  const { createBlockchain, isLoading, errors } = useBlockchainApi()
 
   const handleSubmit = async (formData: BlockchainFormData) => {
     try {
@@ -74,7 +74,7 @@ export default function CreateBlockchainPage() {
             <BlockchainConfigForm
               onSubmit={handleSubmit}
               isLoading={isLoading}
-              errors={error ? { general: error } : {}}
+              errors={errors}
             />
             <SupportBanner />
           </>

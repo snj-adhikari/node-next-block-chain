@@ -4,6 +4,7 @@ export interface User {
   name: string;
   image?: string;
   provider: 'google' | 'facebook';
+  googleId?: string; // Google OAuth ID for linking accounts
   createdAt: string;
   updatedAt: string;
   blockchains: string[]; // Array of blockchain IDs owned by user
@@ -25,6 +26,7 @@ export class UserModel {
     name: string;
     image?: string;
     provider: 'google' | 'facebook';
+    googleId?: string;
   }): User {
     return {
       id: this.generateId(),
@@ -32,6 +34,7 @@ export class UserModel {
       name: userData.name,
       image: userData.image,
       provider: userData.provider,
+      googleId: userData.googleId,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       blockchains: [],
