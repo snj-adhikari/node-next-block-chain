@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { BlockchainService } from '../../../../backend/src/services/BlockchainService'
+import { BlockchainValidationError } from '../../../../backend/src/models/Errors'
 
 const blockchainService = new BlockchainService()
 
@@ -50,39 +51,6 @@ export async function POST(request: NextRequest) {
     // Extract blockchain configuration
     const { name, description, difficulty = 2, miningReward = 50, maxSupply, tags = [], creatorId = 'demo-user' } = body
     
-    // Comprehensive validation
-    if (!name || typeof name !== 'string' || name.trim().length < 3) {
-      console.log('❌ Validation failed: Invalid name')
-      return NextResponse.json({ 
-        error: 'Blockchain name is required and must be at least 3 characters long',
-        field: 'name'
-      }, { status: 400 })
-    }
-    
-    if (name.length > 50) {
-      console.log('❌ Validation failed: Name too long')
-      return NextResponse.json({ 
-        error: 'Blockchain name must be less than 50 characters',
-        field: 'name'
-      }, { status: 400 })
-    }
-    
-    if (difficulty < 1 || difficulty > 6) {
-      console.log('❌ Validation failed: Invalid difficulty')
-      return NextResponse.json({ 
-        error: 'Difficulty must be between 1 and 6',
-        field: 'difficulty'
-      }, { status: 400 })
-    }
-    
-    if (miningReward < 0 || miningReward > 1000) {
-      console.log('❌ Validation failed: Invalid mining reward')
-      return NextResponse.json({ 
-        error: 'Mining reward must be between 0 and 1000',
-        field: 'miningReward'
-      }, { status: 400 })
-    }
-    
     // Create blockchain configuration
     const blockchainConfig = {
       name: name.trim(),
@@ -127,11 +95,10 @@ export async function POST(request: NextRequest) {
     console.error('❌ Error creating blockchain:', error)
     console.error('Stack trace:', error instanceof Error ? error.stack : 'No stack trace')
     
-    // Handle specific blockchain service errors
-    if (error instanceof Error && error.message.includes('Invalid blockchain configuration')) {
+    if (error instanceof BlockchainValidationError) {
       return NextResponse.json({ 
         error: 'Invalid blockchain configuration',
-        details: error.message,
+        details: error.errors,
         timestamp: new Date().toISOString()
       }, { status: 400 })
     }
