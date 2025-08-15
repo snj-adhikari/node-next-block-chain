@@ -25,10 +25,14 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('Blockchain creation request received')
+    
     const blockchain = await request.json()
+    console.log('Received blockchain data:', blockchain)
     
     // Basic validation
     if (!blockchain.name || !blockchain.symbol) {
+      console.log('Validation failed: missing name or symbol')
       return NextResponse.json({ error: 'Name and symbol are required' }, { status: 400 })
     }
     
@@ -41,18 +45,17 @@ export async function POST(request: NextRequest) {
       published: false
     }
     
-    // For Vercel, we'll store in a temporary location or use environment variables
-    // Since Vercel's file system is read-only, we'll return the blockchain without saving
-    // In production, you'd use a database like MongoDB, PostgreSQL, or Vercel KV
-    
     console.log('Created blockchain:', newBlockchain)
     
     return NextResponse.json(newBlockchain, { status: 201 })
   } catch (error) {
     console.error('Error creating blockchain:', error)
+    console.error('Stack trace:', error instanceof Error ? error.stack : 'No stack trace')
+    
     return NextResponse.json({ 
       error: 'Failed to create blockchain', 
-      details: error instanceof Error ? error.message : 'Unknown error'
+      details: error instanceof Error ? error.message : 'Unknown error',
+      timestamp: new Date().toISOString()
     }, { status: 500 })
   }
 }
