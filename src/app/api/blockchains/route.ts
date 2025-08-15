@@ -103,9 +103,19 @@ export async function POST(request: NextRequest) {
       }, { status: 400 })
     }
     
+    // Specific error handling for file system errors
+    if (error instanceof Error && error.message.includes('File system error')) {
+      return NextResponse.json({
+        error: 'Internal Server Error',
+        details: 'A problem occurred with our storage system. Please try again later.',
+        timestamp: new Date().toISOString()
+      }, { status: 503 }) // Service Unavailable
+    }
+
+    // Generic error for unexpected issues
     return NextResponse.json({ 
       error: 'Failed to create blockchain', 
-      details: error instanceof Error ? error.message : 'Unknown error',
+      details: 'An unexpected error occurred. Our team has been notified.',
       timestamp: new Date().toISOString(),
       requestId: Date.now().toString()
     }, { status: 500 })

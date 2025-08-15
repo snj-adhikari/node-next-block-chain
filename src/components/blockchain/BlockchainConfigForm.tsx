@@ -255,6 +255,12 @@ export function BlockchainConfigForm({ onSubmit, isLoading, errors: apiErrors, i
           <div className="text-center text-sm text-muted-foreground" data-testid="form-note">
             No account required • Free to use • Instant creation
           </div>
+
+          {errors.api && (
+            <div className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert" data-testid="api-error">
+              {errors.api}
+            </div>
+          )}
         </form>
       </CardContent>
     </Card>
