@@ -124,12 +124,11 @@ export default function HomePage() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
             >
-              <Button size="lg" className="text-lg px-8 py-3 h-auto" asChild>
-                <Link href="/auth/signin">
-                  Get Started
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+              import { SignInButton } from '@/components/auth/SignInButton'
+
+// ...
+
+              <SignInButton />
               <Button size="lg" variant="outline" className="text-lg px-8 py-3 h-auto" asChild>
                 <Link href="/gallery">
                   Browse Gallery
@@ -233,12 +232,7 @@ export default function HomePage() {
                 Join thousands of developers and blockchain enthusiasts creating the future of decentralized technology.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="text-lg px-8 py-3 h-auto" asChild>
-                  <Link href="/auth/signin">
-                    Start Building Now
-                    <Box className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
+                <SignInButton />
                 <Button size="lg" variant="outline" className="text-lg px-8 py-3 h-auto" asChild>
                   <Link href="/gallery">
                     Explore Examples
